@@ -9,6 +9,9 @@
 	<!-- StringPrinter 클래스를 SpringBean으로 설정 -->
 	<bean id="strPrinter" class="myspring.di.xml.StringPrinter" />
 	
+	<!-- ConsolePrinter 클래스를 SpringBean으로 설정 -->
+	<bean id="consolePrinter" class="myspring.di.xml.ConsolePrinter" />
+	
 	<!-- Hello 클래스를 SpringBean으로 설정 Setter Injection 방식 -->
 	<bean id="hello" class="myspring.di.xml.Hello">
 	</bean>
