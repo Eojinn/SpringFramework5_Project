@@ -1,5 +1,6 @@
 package myspring.di.xml;
 
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -10,6 +11,7 @@ public class HelloBeanJunitTest {
 	
 	@BeforeEach
 	void init() {
+		//Container 객체 생성
 		context = new GenericXmlApplicationContext("classpath:hello-bean.xml");
 		
 	}
@@ -17,6 +19,12 @@ public class HelloBeanJunitTest {
 	
 	@Test
 	void helloBean() {
+		Hello helloById = (Hello)context.getBean("hello");
+		Hello helloByType = context.getBean("hello", Hello.class);
 		
+		//Hello SpringBean이 Singleton 객체인지를 검증하기
+		System.out.println(helloById == helloByType);
+		
+		assertSame(helloById, helloByType);
 	}
 }
