@@ -3,6 +3,7 @@ package myspring.di.xml;
 //static import
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -13,13 +14,20 @@ public class HelloBeanJunitTest {
 	@BeforeEach
 	void init() {
 		//Spring Bean Container 객체 생성
-		context = new GenericXmlApplicationContext("classpath:hello-bean.xml");
-		
+		context = new GenericXmlApplicationContext("classpath:hello-bean.xml");	
 	}
 	
-	
+	//Constructor Injection을 테스트하는 메서드
 	@Test
-	void helloBean() {
+	void helloBeanCons() {
+		Hello hello = context.getBean("helloC", Hello.class);
+		assertEquals("Hello 생성자", hello.sayHello());
+		hello.print();
+	}
+	
+	//Setter Injection을 테스트하는 메서드
+	@Test @Disabled
+	void helloBeanSetter() {
 		Hello helloById = (Hello)context.getBean("hello");
 		Hello helloByType = context.getBean("hello", Hello.class);
 		
