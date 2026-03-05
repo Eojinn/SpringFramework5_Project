@@ -12,7 +12,7 @@ public class HelloBeanJunitTest {
 	
 	@BeforeEach
 	void init() {
-		//Container 객체 생성
+		//Spring Bean Container 객체 생성
 		context = new GenericXmlApplicationContext("classpath:hello-bean.xml");
 		
 	}
