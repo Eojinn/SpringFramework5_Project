@@ -1,5 +1,11 @@
 package myspring.di.xml;
 
-public class HelloBeanJunitTest {
+import org.junit.jupiter.api.Test;
 
+public class HelloBeanJunitTest {
+	
+	@Test
+	void helloBean() {
+		
+	}
 }
